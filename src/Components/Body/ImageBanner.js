@@ -3,7 +3,7 @@ import './ImageBanner.scss';
 
 function ImageBanner() {
   return (
-    <section className='main-banner'>
+    <section className='main-banner sm-only'>
         <h1 className='visually-hidden'>음악 이미지</h1>
         <div className='banner-image'>
             <img src="/images/albumcover.png"/>

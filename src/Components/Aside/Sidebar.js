@@ -3,7 +3,7 @@ import './_Sidebar.scss';
 import { AiOutlineClose } from "react-icons/ai";
 function Sidebar(props) {
   return (
-    <aside className='sidebar'>
+    <aside className='sidebar sm-hidden'>
         <div className="container">
             <div className="row">
                 <div className="col-sm-4">

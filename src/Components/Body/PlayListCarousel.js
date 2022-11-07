@@ -24,7 +24,16 @@ const settings = {
   infinite: true,
   speed: 500,
   slidesToShow: 1,
-  slidesToScroll: 1
+  slidesToScroll: 1,
+  variableWidth:true,
+  responsive: [ // 반응형 웹 구현 옵션
+  {  
+    breakpoint: 350, //화면 사이즈 960px일 때
+    settings: {
+      variableWidth:false,
+    } 
+  }
+]
 
 };
 

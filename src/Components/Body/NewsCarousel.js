@@ -24,11 +24,19 @@ const settings = {
   infinite: true,
   speed: 500,
   slidesToShow: 1,
-  slidesToScroll: 1
+  slidesToScroll: 1,
+  variableWidth:true,
+  responsive: [ // 반응형 웹 구현 옵션
+  {  
+    breakpoint: 350, //화면 사이즈 960px일 때
+    settings: {
+      variableWidth:false,
+    } 
+  }
+]
+}
 
-};
-
-const content1 = '트래비스 스콧 x 나이키 에어 조던 1 로우 :올리브 새로운 실착 사진'
+const content1 = '트래비스 스콧 x 나이키 에어 조던 1 로우 : 올리브 새로운 실착 사진'
 const content2 = '우리는 도대체 왜 트래비스 스콧에 열광하나?'
 const content3 = '빌보드 톱10 도배, LP 57만장 판매…테일러 스위프트의 저력'
 function NewsCarousel() {

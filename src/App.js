@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Global from './Global';
 import { useState } from 'react';
 import Sidebar from './Components/Aside/Sidebar'
 import Header from './Components/Header/Header';
@@ -18,6 +19,7 @@ function App() {
   } 
   return (
     <>
+    <Global></Global>
   {showSidebar && <Sidebar onTouchCloseButton={sidebarHandler}></Sidebar>}
    <div className="container">
     <div className="row">
