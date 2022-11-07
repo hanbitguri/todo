@@ -1,0 +1,37 @@
+.carousel{
+    width: 100vw;
+    
+    
+    .carousel-image{
+       img{
+        
+        height: 320px;
+        margin-bottom: 4px;
+       }
+    
+    }
+    margin-bottom: 24px;
+    .carousel-content{
+        font-size: 14px;
+        font-weight: 700;
+        margin-right: 10px;
+        margin-bottom: 0;
+    }
+    .carousel-content-news{
+        font-size: 14px;
+        font-weight: 800;
+        text-decoration: none;
+        color: #706d63;
+        opacity: 0.8;
+    }
+    .carousel-content-date{
+        font-size: 12px;
+        font-weight: 700;
+        
+    }
+    .carousel-content-desc{
+        font-weight: 700;
+        font-size: 12px;
+        opacity: 0.4;
+    }
+}
