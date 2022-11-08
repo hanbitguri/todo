@@ -1,7 +1,25 @@
-import React from 'react'
+import React, { useRef, useState } from 'react'
 import './Login.scss'
 import { AiOutlineLaptop } from "react-icons/ai";
-function Login() {
+import { useDispatch } from 'react-redux';
+import { authAction } from '../../store/authslice';
+function Login(props) {
+   const [isError, setIsError] = useState(false)
+   const email = useRef();
+   const password = useRef();
+   const dispatch = useDispatch()
+   
+
+   function submitHandler(e){
+      e.preventDefault();
+      if(email.current.value.length===0 || password.current.value.length===0){
+         setIsError(true)
+         return
+      }
+      dispatch(authAction.login())
+      props.onSubmit()
+   }
+
   return (
     
     <>
@@ -13,15 +31,16 @@ function Login() {
     </header>
      <section className='login-main'>
         <div className='login-title'>Sign in to LoremIpsum</div>
-        <form action="" className='login-form'>
+        <form action="" className='login-form' onSubmit={submitHandler}>
             <label htmlFor="id">Email address</label>
-            <input type="email"  id='id' placeholder='example@example.com'/>
+           
+            <input type="email"  id='id' placeholder={isError ? '다시 한번 확인해주세요' : 'example@exam.com'} className={isError ? 'invalid' : ''} ref={email}/>
             <div className='login-form-pw'>
             <label htmlFor="pw">Password</label>
             <a href='/'>Forgot password?</a>
             </div>
-            <input type="password" id='pw' placeholder='enter password' />
-            <button type='button'>Sign in</button>
+            <input type="password" id='pw' placeholder={isError ? '다시 한번 확인해주세요':'enter password'} className={isError ? 'invalid' : ''} ref={password}/>
+            <button type='submit'>Sign in</button>
         </form>
      </section>
      <section className='login-auth'>

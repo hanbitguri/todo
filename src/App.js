@@ -11,13 +11,15 @@ import PlayListCarousel from './Components/Body/PlayListCarousel'
 import MainDesc from './Components/Body/MainDesc';
 import Subscribe from './Components/Body/Subscribe';
 import Footer from './Components/Footer/Footer';
-import { BrowserRouter , Routes , Route } from 'react-router-dom';
 import Login from './Components/Section/Login';
 import Overlay from './Components/Aside/Overlay';
+import { useSelector } from 'react-redux';
 function App() {
   const [showSidebar,setShowSidebar] = useState(false)
   const [showLoginPage,setShowLoginPage] = useState(false)
   const [showOverlay,setShowOverLay] = useState(false)
+  const auth = useSelector(state => state.isAuth)
+  
   function sidebarHandler(){
     setShowSidebar(state=>!state)
   }
@@ -36,12 +38,12 @@ function App() {
     <Global></Global>
     
   {showSidebar && <Sidebar onTouchCloseButton={sidebarHandler} onGoLogin={goLoginPage}></Sidebar>}
-  {showLoginPage && <Login></Login>} 
+  {showLoginPage && <Login onSubmit={closeLogin}></Login>} 
   {showOverlay && <Overlay onTouch={closeLogin}></Overlay>}
    <div className="container">
     <div className="row">
       <div className="col-sm-4 col-md-12 col-lg-12">
-        <Header onTouchMenuButton={sidebarHandler} onGoLogin={goLoginPage}/>
+        <Header onTouchMenuButton={sidebarHandler} onGoLogin={goLoginPage} />
         <ImageBanner/>
         <Section title={'NEWS'}/>
         <NewsCarousel/>
@@ -50,7 +52,9 @@ function App() {
         <Section title={'추천 플레이리스트'}/>
         <PlayListCarousel/>
         <Subscribe/>
-        <MainDesc/>
+        {
+          !auth && <MainDesc/>
+        }
         <Footer></Footer>
         
       </div>

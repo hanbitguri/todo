@@ -1,11 +1,8 @@
 .sidebar{
     display: flex;
-    
     flex-direction: column;
     width: 100%;
-    
     position: fixed;
-
     top:0;
     left: 0;
     z-index: 100;
@@ -16,13 +13,25 @@
    
 
     .sidebar-header{
+        
         margin-top: 16px;
         display: flex;
-        margin-bottom: 16px;
-        .sidebar-title{
+        margin-bottom: 48px;
+        .sidebar-profile{
+            display: flex;
             flex-grow: 1;
+            .user-name{
+                font-size: 25px;
+                
+            }
+            .profile-icon{
+                font-size: 40px;
+                margin-right: 4px;
+            }
         }
         .sidebar-exit{
+            
+            
             font-size: 20px;
         }
         .sidebar-close{
@@ -88,6 +97,9 @@
       
     }
     @media screen and (min-width: 776px) {
+       width: 225px;
+       justify-content: start;
+       align-items: start;
        
       }
 }

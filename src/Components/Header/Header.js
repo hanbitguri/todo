@@ -2,8 +2,13 @@ import React from 'react'
 import './Header.scss'
 import { AiOutlineMenu } from "react-icons/ai";
 import { RiUser6Line,RiUser6Fill } from "react-icons/ri";
+import { useSelector } from 'react-redux';
 
 function Header(props) {
+  
+  const auth = useSelector(state => state.isAuth)
+  
+
   return (
     <header className='global-header'>
       <div className='global-header-left'>
@@ -11,7 +16,13 @@ function Header(props) {
       </div>
       <div className='global-header-right'>
       <button onClick={props.onTouchMenuButton} className="sm-only"><AiOutlineMenu></AiOutlineMenu></button>
-      <button  className="lg-only user-profile" onClick={props.onGoLogin}><RiUser6Line></RiUser6Line></button>
+      
+      {
+        auth && <button  className="lg-only user-profile" ><RiUser6Fill></RiUser6Fill></button>
+      }
+      {
+        !auth && <button  className="lg-only user-profile" onClick={props.onGoLogin}><RiUser6Line></RiUser6Line></button> 
+      }
       </div>
     </header>
   )
