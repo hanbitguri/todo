@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Global from './Global';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Sidebar from './Components/Aside/Sidebar'
 import Header from './Components/Header/Header';
 import ImageBanner from './Components/Body/ImageBanner';
@@ -14,12 +14,21 @@ import Footer from './Components/Footer/Footer';
 import Login from './Components/Section/Login';
 import Overlay from './Components/Aside/Overlay';
 import { useSelector } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+
 function App() {
   const [showSidebar,setShowSidebar] = useState(false)
   const [showLoginPage,setShowLoginPage] = useState(false)
   const [showOverlay,setShowOverLay] = useState(false)
   const auth = useSelector(state => state.isAuth)
+  const isMobile = useMediaQuery({
+    query: "(max-width: 768px)",
+  });
   
+  useEffect(()=>{
+    isMobile ? setShowSidebar(false) : setShowSidebar(true)
+    
+  },[])
   function sidebarHandler(){
     setShowSidebar(state=>!state)
   }

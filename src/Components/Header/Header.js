@@ -15,7 +15,7 @@ function Header(props) {
       <a href="/" className='global-header-title'>Lorem ipsum</a>
       </div>
       <div className='global-header-right'>
-      <button onClick={props.onTouchMenuButton} className="sm-only"><AiOutlineMenu></AiOutlineMenu></button>
+      <button onClick={props.onTouchMenuButton} ><AiOutlineMenu></AiOutlineMenu></button>
       
       {
         auth && <button  className="lg-only user-profile" ><RiUser6Fill></RiUser6Fill></button>

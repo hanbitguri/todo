@@ -1,11 +1,12 @@
 import React from 'react'
 import './_Sidebar.scss';
-import { AiOutlineClose,AiOutlineUser } from "react-icons/ai";
+import { AiOutlineClose,AiOutlineUser,AiFillSound } from "react-icons/ai";
 import { FaUserAlt } from "react-icons/fa";
 import { BsHeart,BsMinecartLoaded,BsFillMusicPlayerFill,BsFillHouseFill,BsHandThumbsUpFill } from "react-icons/bs";
 import { useDispatch, useSelector } from 'react-redux';
 import { authAction } from '../../store/authslice';
-
+import { MdFavorite } from "react-icons/md";
+import { BiShuffle,BiPlay,BiSkipNext,BiSkipPrevious } from "react-icons/bi";
 function Sidebar(props) {
     const auth = useSelector(state => state.isAuth)
     const dispatch = useDispatch()
@@ -15,9 +16,7 @@ function Sidebar(props) {
     }
   return (
     <aside className='sidebar'>
-        <div className="container">
-            <div className="row">
-                <div className="col-sm-4">
+        
                 <h1 className='visually-hidden'>페이지 사이드바</h1>
                     <div className='sidebar-header'>
                         {
@@ -60,13 +59,38 @@ function Sidebar(props) {
                     {
                     !auth &&
                     <div className='sidebar-footer' onClick={props.onGoLogin}>    
-                    <strong className='sideber-button'>로그인 하기</strong>
+                    <strong className='sidebar-button'>로그인 하기</strong>
+                    </div>
+                    }
+                    {
+                     auth &&   
+                     <div className='sidebar-footer lg-only'>    
+                      <div className='player-1'>
+                          <MdFavorite></MdFavorite>
+                          <div>
+                              <span>오늘 뭐듣지?<br/></span>
+                              <span>재생 버튼을 클릭해보세요.</span>
+                          </div>
+                      </div>
+                      <div className='player-2'>
+                          <div className='player-icons'>
+                              <BiShuffle className='shuffle'/>
+                              <BiSkipPrevious></BiSkipPrevious>
+                              <BiPlay className='play'></BiPlay>
+                              <BiSkipNext></BiSkipNext>
+                          </div>
+                      </div>
+                      <div className='player-3'>
+                          <div className='player-sound'>
+                            <span>00:00 / 00:00 </span>
+                            <AiFillSound></AiFillSound>
+
+                          </div>
+                      </div>
                     </div>
                     }
                     
-                </div>
-            </div>
-        </div>
+    
      
     </aside>
   )
