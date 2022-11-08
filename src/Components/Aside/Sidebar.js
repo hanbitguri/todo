@@ -27,7 +27,7 @@ function Sidebar(props) {
                             </div> :
                             <div className='sidebar-profile'>
                             <FaUserAlt className='profile-icon'/>
-                            <div className='user-name'>회원이름</div>
+                            <div className='user-name'>{props.emailValue}</div>
                           </div>
                         }
 

@@ -4,11 +4,11 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { RiUser6Line,RiUser6Fill } from "react-icons/ri";
 import { useSelector } from 'react-redux';
 
+
 function Header(props) {
   
   const auth = useSelector(state => state.isAuth)
-  
-
+ 
   return (
     <header className='global-header'>
       <div className='global-header-left'>

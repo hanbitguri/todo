@@ -6,9 +6,9 @@ function Footer() {
         <h2 className='visually-hidden'>사이트 정보</h2>
         <div className='footer-content'>
         <strong className='footer-alert'>
-            <a href="">공지사항</a>
+            <a href="/">공지사항</a>
         </strong>
-        <a href="" className='footer-alert-link'>음악과 쇼핑 혜택을 하나로! 첫...</a>
+        <a href="/" className='footer-alert-link'>음악과 쇼핑 혜택을 하나로! 첫...</a>
         </div>
         <dl className='contact-list'>
             <div className='contact'>

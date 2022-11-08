@@ -17,9 +17,10 @@ import { useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 
 function App() {
-  const [showSidebar,setShowSidebar] = useState(false)
+  const [showSidebar,setShowSidebar] = useState(true)
   const [showLoginPage,setShowLoginPage] = useState(false)
   const [showOverlay,setShowOverLay] = useState(false)
+  const [emailValue,setEmailValue] = useState('')
   const auth = useSelector(state => state.isAuth)
   const isMobile = useMediaQuery({
     query: "(max-width: 768px)",
@@ -28,26 +29,35 @@ function App() {
   useEffect(()=>{
     isMobile ? setShowSidebar(false) : setShowSidebar(true)
     
-  },[])
+  },[isMobile])
+
+  
+
+
   function sidebarHandler(){
     setShowSidebar(state=>!state)
   }
   function goLoginPage(){
     setShowLoginPage(state=>!state)
     setShowOverLay(true)
-    setShowSidebar(false)
+    isMobile && setShowSidebar(false)
   } 
   function closeLogin(){
     setShowLoginPage(false)
     setShowOverLay(false)
   }
+  function onSave(value){
+    setEmailValue(value)
+  }
+  
   return (
     <>
      
     <Global></Global>
     
-  {showSidebar && <Sidebar onTouchCloseButton={sidebarHandler} onGoLogin={goLoginPage}></Sidebar>}
-  {showLoginPage && <Login onSubmit={closeLogin}></Login>} 
+      {showSidebar && <Sidebar onTouchCloseButton={sidebarHandler} onGoLogin={goLoginPage} emailValue={emailValue}></Sidebar>}
+    
+  {showLoginPage && <Login onSubmit={closeLogin} showSidebar={setShowSidebar} onSave={onSave}></Login>} 
   {showOverlay && <Overlay onTouch={closeLogin}></Overlay>}
    <div className="container">
     <div className="row">

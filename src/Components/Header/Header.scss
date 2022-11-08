@@ -40,4 +40,11 @@
         }
      
     }
+    @media screen and (min-width: 1000px) {
+        .global-header-left{
+            .global-header-title{
+                font-size: 32px;
+            }
+      }
+    }
 }

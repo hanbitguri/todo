@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react'
+import React, {  useRef, useState } from 'react'
 import './Login.scss'
 import { AiOutlineLaptop } from "react-icons/ai";
 import { useDispatch } from 'react-redux';
 import { authAction } from '../../store/authslice';
+
 function Login(props) {
    const [isError, setIsError] = useState(false)
    const email = useRef();
@@ -17,7 +18,11 @@ function Login(props) {
          return
       }
       dispatch(authAction.login())
-      props.onSubmit()
+   
+         props.onSubmit()
+         props.onSave(email.current.value)
+         
+      
    }
 
   return (
@@ -45,7 +50,7 @@ function Login(props) {
      </section>
      <section className='login-auth'>
         <span>New to LoremIpsum? </span>
-        <strong><a href="">Create an account.</a></strong>
+        <strong><a href="/">Create an account.</a></strong>
      </section>
      <footer className='login-footer'>
         <div>
