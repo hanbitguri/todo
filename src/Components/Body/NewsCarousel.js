@@ -7,15 +7,15 @@ import './Carousel.scss'
 const imgs = [
     {
         id:'p1',
-        url:'/images/astro.jpg'
+        url:'./images/astro.jpg'
     },
     {
         id:'p2',
-        url:'/images/taylor2.png'
+        url:'./images/taylor2.png'
     },
     {
         id:'p3',
-        url:'/images/travis.jpeg'
+        url:'./images/travis.jpeg'
     },
 ]
 
