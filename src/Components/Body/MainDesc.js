@@ -10,7 +10,7 @@ function MainDesc() {
         수천 개의 플레이리스트가 트렌드에 맞게 업데이트!
         </p>
         <div className='main-desc-image'>
-        <img src="/images/Group 6.jpg" alt="" />
+        <img src="/images/Group 6.jpg" alt="" className='sm-only' />
         </div>
     </section>
 

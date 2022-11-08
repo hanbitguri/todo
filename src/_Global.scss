@@ -1,4 +1,4 @@
-$md-breakpoint : 574px;
+$md-breakpoint : 776px;
 $lg-breakpoint : 1200px;
 .visually-hidden {
     position: absolute !important;
@@ -11,7 +11,11 @@ $lg-breakpoint : 1200px;
     white-space: nowrap !important;
     border: 0 !important;
   }
-  
+  @media screen and (min-width: $md-breakpoint) {
+    .container{
+      margin-left: 225px;
+    }
+  }
   .sm-only {
     @media screen and (min-width: $md-breakpoint) {
       display: none !important;
